@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2020 .
- */
-
 import 'dart:core';
 
 import 'address_model.dart';
@@ -62,8 +58,10 @@ class EProvider extends Model {
     images = mediaListFromJson(json, 'images');
     phoneNumber = stringFromJson(json, 'phone_number');
     mobileNumber = stringFromJson(json, 'mobile_number');
-    type = objectFromJson(json, 'e_provider_type', (v) => EProviderType.fromJson(v));
-    availabilityHours = listFromJson(json, 'availability_hours', (v) => AvailabilityHour.fromJson(v));
+    type = objectFromJson(
+        json, 'e_provider_type', (v) => EProviderType.fromJson(v));
+    availabilityHours = listFromJson(
+        json, 'availability_hours', (v) => AvailabilityHour.fromJson(v));
     availabilityRange = doubleFromJson(json, 'availability_range');
     available = boolFromJson(json, 'available');
     featured = boolFromJson(json, 'featured');
@@ -71,8 +69,10 @@ class EProvider extends Model {
     taxes = listFromJson(json, 'taxes', (v) => Tax.fromJson(v));
     employees = listFromJson(json, 'users', (v) => User.fromJson(v));
     rate = doubleFromJson(json, 'rate');
-    reviews = listFromJson(json, 'e_provider_reviews', (v) => Review.fromJson(v));
-    totalReviews = reviews.isEmpty ? intFromJson(json, 'total_reviews') : reviews.length;
+    reviews =
+        listFromJson(json, 'e_provider_reviews', (v) => Review.fromJson(v));
+    totalReviews =
+        reviews.isEmpty ? intFromJson(json, 'total_reviews') : reviews.length;
     verified = boolFromJson(json, 'verified');
     bookingsInProgress = intFromJson(json, 'bookings_in_progress');
   }

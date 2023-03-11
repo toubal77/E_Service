@@ -1,10 +1,3 @@
-/*
- * File name: custom_pages_view.dart
- * Last modified: 2022.02.18 at 19:24:11
- * Author: SmarterVision - https://codecanyon.net/user/smartervision
- * Copyright (c) 2022
- */
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2020 .
- */
-
 import 'dart:core';
 
 import 'parents/model.dart';

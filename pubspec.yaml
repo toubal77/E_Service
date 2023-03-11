@@ -43,19 +43,19 @@ dependencies:
   flutter_html: 3.0.0-alpha.2
   url_launcher: 6.0.20
   # FIREBASE
-  firebase_messaging: 11.2.12
-  cloud_firestore: 3.1.11
-  firebase_auth: 3.3.12
-  firebase_core: 1.14.0
-  firebase_storage: 10.2.10
+  # firebase_messaging: ^14.2.6
+  cloud_firestore: ^4.4.4
+  firebase_auth: ^4.2.10
+  firebase_core: ^2.7.1
+  firebase_storage: ^11.0.15
   # GOOGLE MAPS
   google_maps_flutter: 2.1.3
   google_maps_flutter_web: 0.3.2+1
   map_launcher: 2.2.1+1
-  google_maps_place_picker_mb:
-    git:
-      url: https://github.com/SmarterVision/google_maps_place_picker_mb.git
-      ref: master
+  # google_maps_place_picker_mb:
+  #   git:
+  #     url: https://github.com/SmarterVision/google_maps_place_picker_mb.git
+  #     ref: master
   flutter:
     sdk: flutter
   flutter_localizations:
