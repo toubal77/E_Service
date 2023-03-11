@@ -45,14 +45,18 @@ class BookingController extends GetxController {
     await getBooking();
     initBookingAddress();
     if (showMessage) {
-      Get.showSnackbar(Ui.SuccessSnackBar(message: "Booking page refreshed successfully".tr));
+      Get.showSnackbar(Ui.SuccessSnackBar(
+          message: "Booking page refreshed successfully".tr));
     }
   }
 
   Future<void> getBooking() async {
     try {
       booking.value = await _bookingRepository.get(booking.value.id);
-      if (booking.value.status == Get.find<BookingsController>().getStatusByOrder(Get.find<GlobalService>().global.value.inProgress) && timer == null) {
+      if (booking.value.status ==
+              Get.find<BookingsController>().getStatusByOrder(
+                  Get.find<GlobalService>().global.value.inProgress) &&
+          timer == null) {
         timer = Timer.periodic(Duration(minutes: 1), (t) {
           booking.update((val) {
             val.duration += (1 / 60);
@@ -66,8 +70,10 @@ class BookingController extends GetxController {
 
   Future<void> startBookingService() async {
     try {
-      final _status = Get.find<BookingsController>().getStatusByOrder(Get.find<GlobalService>().global.value.inProgress);
-      final _booking = new Booking(id: booking.value.id, startAt: DateTime.now(), status: _status);
+      final _status = Get.find<BookingsController>()
+          .getStatusByOrder(Get.find<GlobalService>().global.value.inProgress);
+      final _booking = new Booking(
+          id: booking.value.id, startAt: DateTime.now(), status: _status);
       await _bookingRepository.update(_booking);
       booking.update((val) {
         val.startAt = _booking.startAt;
@@ -85,8 +91,10 @@ class BookingController extends GetxController {
 
   Future<void> finishBookingService() async {
     try {
-      final _status = Get.find<BookingsController>().getStatusByOrder(Get.find<GlobalService>().global.value.done);
-      var _booking = new Booking(id: booking.value.id, endsAt: DateTime.now(), status: _status);
+      final _status = Get.find<BookingsController>()
+          .getStatusByOrder(Get.find<GlobalService>().global.value.done);
+      var _booking = new Booking(
+          id: booking.value.id, endsAt: DateTime.now(), status: _status);
       final result = await _bookingRepository.update(_booking);
       booking.update((val) {
         val.endsAt = result.endsAt;
@@ -101,9 +109,12 @@ class BookingController extends GetxController {
 
   Future<void> cancelBookingService() async {
     try {
-      if (booking.value.status.order < Get.find<GlobalService>().global.value.onTheWay) {
-        final _status = Get.find<BookingsController>().getStatusByOrder(Get.find<GlobalService>().global.value.failed);
-        final _booking = new Booking(id: booking.value.id, cancel: true, status: _status);
+      if (booking.value.status.order <
+          Get.find<GlobalService>().global.value.onTheWay) {
+        final _status = Get.find<BookingsController>()
+            .getStatusByOrder(Get.find<GlobalService>().global.value.failed);
+        final _booking =
+            new Booking(id: booking.value.id, cancel: true, status: _status);
         await _bookingRepository.update(_booking);
         booking.update((val) {
           val.cancel = true;
@@ -118,10 +129,15 @@ class BookingController extends GetxController {
   void initBookingAddress() {
     mapController?.moveCamera(
       CameraUpdate.newCameraPosition(
-        CameraPosition(target: booking.value.address.getLatLng(), zoom: 12.4746),
+        CameraPosition(
+            target: booking.value.address.getLatLng(), zoom: 12.4746),
       ),
     );
-    MapsUtil.getMarker(address: booking.value.address, id: booking.value.id, description: booking.value.user?.name ?? '').then((marker) {
+    MapsUtil.getMarker(
+            address: booking.value.address,
+            id: booking.value.id,
+            description: booking.value.user?.name ?? '')
+        .then((marker) {
       allMarkers.add(marker);
     });
   }
@@ -129,7 +145,9 @@ class BookingController extends GetxController {
   String getTime({String separator = ":"}) {
     String hours = "";
     String minutes = "";
-    int minutesInt = ((booking.value.duration - booking.value.duration.toInt()) * 60).toInt();
+    int minutesInt =
+        ((booking.value.duration - booking.value.duration.toInt()) * 60)
+            .toInt();
     int hoursInt = booking.value.duration.toInt();
     if (hoursInt < 10) {
       hours = "0" + hoursInt.toString();
@@ -145,7 +163,8 @@ class BookingController extends GetxController {
   }
 
   Future<void> startChat() async {
-    List<User> _employees = await _eProviderRepository.getEmployees(booking.value.eProvider.id);
+    List<User> _employees =
+        await _eProviderRepository.getEmployees(booking.value.eProvider.id);
     _employees = _employees
         .map((e) {
           e.avatar = booking.value.eProvider.images[0];
@@ -153,7 +172,8 @@ class BookingController extends GetxController {
         })
         .toSet()
         .toList();
-    Message _message = new Message(_employees, name: booking.value.eProvider.name);
+    Message _message =
+        new Message(_employees, name: booking.value.eProvider.name);
     Get.toNamed(Routes.CHAT, arguments: _message);
   }
 }

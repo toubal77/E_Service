@@ -1,10 +1,3 @@
-/*
- * File name: languages_loader_widget.dart
- * Last modified: 2022.03.10 at 21:33:46
- * Author: SmarterVision - https://codecanyon.net/user/smartervision
- * Copyright (c) 2022
- */
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';

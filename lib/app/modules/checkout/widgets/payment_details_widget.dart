@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2020 .
- */
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -43,7 +39,8 @@ class PaymentDetailsWidget extends StatelessWidget {
                     width: double.infinity,
                     height: 80,
                   ),
-                  errorWidget: (context, url, error) => Icon(Icons.error_outline),
+                  errorWidget: (context, url, error) =>
+                      Icon(Icons.error_outline),
                 ),
               ),
             ],
@@ -69,14 +66,16 @@ class PaymentDetailsWidget extends StatelessWidget {
                   description: "Tax Amount".tr,
                   child: Align(
                     alignment: Alignment.centerRight,
-                    child: Ui.getPrice(_booking.getTaxesValue(), style: Get.textTheme.subtitle2),
+                    child: Ui.getPrice(_booking.getTaxesValue(),
+                        style: Get.textTheme.subtitle2),
                   ),
                 ),
                 BookingRowWidget(
                   description: "Subtotal".tr,
                   child: Align(
                     alignment: Alignment.centerRight,
-                    child: Ui.getPrice(_booking.getSubtotal(), style: Get.textTheme.subtitle2),
+                    child: Ui.getPrice(_booking.getSubtotal(),
+                        style: Get.textTheme.subtitle2),
                   ),
                 ),
                 if ((_booking.coupon?.discount ?? 0) > 0)
@@ -87,7 +86,11 @@ class PaymentDetailsWidget extends StatelessWidget {
                       child: Wrap(
                         children: [
                           Text(' - ', style: Get.textTheme.bodyText1),
-                          Ui.getPrice(_booking.coupon?.discount ?? 0, style: Get.textTheme.bodyText1, unit: _booking.coupon.discountType == 'percent' ? "%" : null),
+                          Ui.getPrice(_booking.coupon?.discount ?? 0,
+                              style: Get.textTheme.bodyText1,
+                              unit: _booking.coupon.discountType == 'percent'
+                                  ? "%"
+                                  : null),
                         ],
                       ),
                     ),
@@ -97,7 +100,8 @@ class PaymentDetailsWidget extends StatelessWidget {
                   description: "Total Amount".tr,
                   child: Align(
                     alignment: Alignment.centerRight,
-                    child: Ui.getPrice(_booking.getTotal(), style: Get.textTheme.headline6),
+                    child: Ui.getPrice(_booking.getTotal(),
+                        style: Get.textTheme.headline6),
                   ),
                 ),
               ],

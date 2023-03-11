@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2020 .
- */
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,7 +19,9 @@ class BookingsListItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color _color = _booking.cancel ? Get.theme.focusColor : Get.theme.colorScheme.secondary;
+    Color _color = _booking.cancel
+        ? Get.theme.focusColor
+        : Get.theme.colorScheme.secondary;
     return GestureDetector(
       onTap: () {
         Get.toNamed(Routes.BOOKING, arguments: _booking);
@@ -38,7 +36,9 @@ class BookingsListItemWidget extends StatelessWidget {
             Column(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10)),
                   child: CachedNetworkImage(
                     height: 80,
                     width: 80,
@@ -50,7 +50,8 @@ class BookingsListItemWidget extends StatelessWidget {
                       width: double.infinity,
                       height: 80,
                     ),
-                    errorWidget: (context, url, error) => Icon(Icons.error_outline),
+                    errorWidget: (context, url, error) =>
+                        Icon(Icons.error_outline),
                   ),
                 ),
                 if (_booking.payment != null)
@@ -73,15 +74,20 @@ class BookingsListItemWidget extends StatelessWidget {
                   width: 80,
                   child: Column(
                     children: [
-                      Text(DateFormat('HH:mm', Get.locale.toString()).format(_booking.bookingAt),
+                      Text(
+                          DateFormat('HH:mm', Get.locale.toString())
+                              .format(_booking.bookingAt),
                           maxLines: 1,
                           style: Get.textTheme.bodyText2.merge(
-                            TextStyle(color: Get.theme.primaryColor, height: 1.4),
+                            TextStyle(
+                                color: Get.theme.primaryColor, height: 1.4),
                           ),
                           softWrap: false,
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.fade),
-                      Text(DateFormat('dd', Get.locale.toString()).format(_booking.bookingAt),
+                      Text(
+                          DateFormat('dd', Get.locale.toString())
+                              .format(_booking.bookingAt),
                           maxLines: 1,
                           style: Get.textTheme.headline3.merge(
                             TextStyle(color: Get.theme.primaryColor, height: 1),
@@ -89,7 +95,9 @@ class BookingsListItemWidget extends StatelessWidget {
                           softWrap: false,
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.fade),
-                      Text(DateFormat('MMM', Get.locale.toString()).format(_booking.bookingAt),
+                      Text(
+                          DateFormat('MMM', Get.locale.toString())
+                              .format(_booking.bookingAt),
                           maxLines: 1,
                           style: Get.textTheme.bodyText2.merge(
                             TextStyle(color: Get.theme.primaryColor, height: 1),
@@ -101,7 +109,9 @@ class BookingsListItemWidget extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                     color: _color,
-                    borderRadius: BorderRadius.only(bottomRight: Radius.circular(10), bottomLeft: Radius.circular(10)),
+                    borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(10),
+                        bottomLeft: Radius.circular(10)),
                   ),
                   padding: EdgeInsets.symmetric(horizontal: 5, vertical: 6),
                 ),
@@ -187,7 +197,8 @@ class BookingsListItemWidget extends StatelessWidget {
                             alignment: AlignmentDirectional.centerEnd,
                             child: Ui.getPrice(
                               _booking.getTotal(),
-                              style: Get.textTheme.headline6.merge(TextStyle(color: _color)),
+                              style: Get.textTheme.headline6
+                                  .merge(TextStyle(color: _color)),
                             ),
                           ),
                         ),

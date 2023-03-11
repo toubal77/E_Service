@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2020 .
- */
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,7 +19,8 @@ class SearchServicesListItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.toNamed(Routes.E_SERVICE, arguments: {'eService': _service, 'heroTag': 'search_list'});
+        Get.toNamed(Routes.E_SERVICE,
+            arguments: {'eService': _service, 'heroTag': 'search_list'});
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
@@ -37,7 +34,9 @@ class SearchServicesListItemWidget extends StatelessWidget {
                 Hero(
                   tag: 'search_list' + _service.id,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10)),
                     child: CachedNetworkImage(
                       height: 80,
                       width: 80,
@@ -49,7 +48,8 @@ class SearchServicesListItemWidget extends StatelessWidget {
                         width: double.infinity,
                         height: 80,
                       ),
-                      errorWidget: (context, url, error) => Icon(Icons.error_outline),
+                      errorWidget: (context, url, error) =>
+                          Icon(Icons.error_outline),
                     ),
                   ),
                 ),
@@ -59,14 +59,17 @@ class SearchServicesListItemWidget extends StatelessWidget {
                     child: Text("Available".tr,
                         maxLines: 1,
                         style: Get.textTheme.bodyText2.merge(
-                          TextStyle(color: Colors.green, height: 1.4, fontSize: 10),
+                          TextStyle(
+                              color: Colors.green, height: 1.4, fontSize: 10),
                         ),
                         softWrap: false,
                         textAlign: TextAlign.center,
                         overflow: TextOverflow.fade),
                     decoration: BoxDecoration(
                       color: Colors.green.withOpacity(0.2),
-                      borderRadius: BorderRadius.only(bottomRight: Radius.circular(10), bottomLeft: Radius.circular(10)),
+                      borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10)),
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 6),
                   ),
@@ -76,14 +79,17 @@ class SearchServicesListItemWidget extends StatelessWidget {
                     child: Text("Offline".tr,
                         maxLines: 1,
                         style: Get.textTheme.bodyText2.merge(
-                          TextStyle(color: Colors.grey, height: 1.4, fontSize: 10),
+                          TextStyle(
+                              color: Colors.grey, height: 1.4, fontSize: 10),
                         ),
                         softWrap: false,
                         textAlign: TextAlign.center,
                         overflow: TextOverflow.fade),
                     decoration: BoxDecoration(
                       color: Colors.grey.withOpacity(0.2),
-                      borderRadius: BorderRadius.only(bottomRight: Radius.circular(10), bottomLeft: Radius.circular(10)),
+                      borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10)),
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 6),
                   ),
@@ -125,15 +131,22 @@ class SearchServicesListItemWidget extends StatelessWidget {
                                     color: Get.theme.colorScheme.secondary,
                                     size: 18,
                                   ),
-                                  Text(_service.rate.toString(), style: Get.textTheme.bodyText2.merge(TextStyle(color: Get.theme.colorScheme.secondary, height: 1.4))),
+                                  Text(_service.rate.toString(),
+                                      style: Get.textTheme.bodyText2.merge(
+                                          TextStyle(
+                                              color: Get
+                                                  .theme.colorScheme.secondary,
+                                              height: 1.4))),
                                 ],
                               ),
-                              backgroundColor: Get.theme.colorScheme.secondary.withOpacity(0.15),
+                              backgroundColor: Get.theme.colorScheme.secondary
+                                  .withOpacity(0.15),
                               shape: StadiumBorder(),
                             ),
                           ),
                           Text(
-                            "From (%s)".trArgs([_service.totalReviews.toString()]),
+                            "From (%s)"
+                                .trArgs([_service.totalReviews.toString()]),
                             style: Get.textTheme.bodyText1,
                           ),
                         ],
@@ -144,12 +157,15 @@ class SearchServicesListItemWidget extends StatelessWidget {
                           if (_service.getOldPrice > 0)
                             Ui.getPrice(
                               _service.getOldPrice,
-                              style: Get.textTheme.bodyText1.merge(TextStyle(color: Get.theme.focusColor, decoration: TextDecoration.lineThrough)),
+                              style: Get.textTheme.bodyText1.merge(TextStyle(
+                                  color: Get.theme.focusColor,
+                                  decoration: TextDecoration.lineThrough)),
                               unit: _service.getUnit,
                             ),
                           Ui.getPrice(
                             _service.getPrice,
-                            style: Get.textTheme.bodyText2.merge(TextStyle(color: Get.theme.colorScheme.secondary)),
+                            style: Get.textTheme.bodyText2.merge(TextStyle(
+                                color: Get.theme.colorScheme.secondary)),
                             unit: _service.getUnit,
                           ),
                         ],
@@ -197,16 +213,22 @@ class SearchServicesListItemWidget extends StatelessWidget {
                   Divider(height: 8, thickness: 1),
                   Wrap(
                     spacing: 5,
-                    children: List.generate(_service.subCategories.length, (index) {
+                    children:
+                        List.generate(_service.subCategories.length, (index) {
                       return Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                        child: Text(_service.subCategories.elementAt(index).name, style: Get.textTheme.caption.merge(TextStyle(fontSize: 10))),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                        child: Text(
+                            _service.subCategories.elementAt(index).name,
+                            style: Get.textTheme.caption
+                                .merge(TextStyle(fontSize: 10))),
                         decoration: BoxDecoration(
                             color: Get.theme.primaryColor,
                             border: Border.all(
                               color: Get.theme.focusColor.withOpacity(0.2),
                             ),
-                            borderRadius: BorderRadius.all(Radius.circular(20))),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
                       );
                     }),
                     runSpacing: 5,

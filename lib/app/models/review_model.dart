@@ -1,6 +1,3 @@
-/*
- * Copyright (c) 2020 .
- */
 import 'e_service_model.dart';
 import 'parents/model.dart';
 import 'user_model.dart';
@@ -13,13 +10,20 @@ class Review extends Model {
   User user;
   EService eService;
 
-  Review({this.id, this.rate, this.review, this.createdAt, this.user, this.eService});
+  Review(
+      {this.id,
+      this.rate,
+      this.review,
+      this.createdAt,
+      this.user,
+      this.eService});
 
   Review.fromJson(Map<String, dynamic> json) {
     super.fromJson(json);
     rate = doubleFromJson(json, 'rate');
     review = stringFromJson(json, 'review');
-    createdAt = dateFromJson(json, 'created_at', defaultValue: DateTime.now().toLocal());
+    createdAt = dateFromJson(json, 'created_at',
+        defaultValue: DateTime.now().toLocal());
     user = objectFromJson(json, 'user', (v) => User.fromJson(v));
     eService = objectFromJson(json, 'e_service', (v) => EService.fromJson(v));
   }
@@ -53,5 +57,12 @@ class Review extends Model {
           eService == other.eService;
 
   @override
-  int get hashCode => super.hashCode ^ id.hashCode ^ rate.hashCode ^ review.hashCode ^ createdAt.hashCode ^ user.hashCode ^ eService.hashCode;
+  int get hashCode =>
+      super.hashCode ^
+      id.hashCode ^
+      rate.hashCode ^
+      review.hashCode ^
+      createdAt.hashCode ^
+      user.hashCode ^
+      eService.hashCode;
 }
