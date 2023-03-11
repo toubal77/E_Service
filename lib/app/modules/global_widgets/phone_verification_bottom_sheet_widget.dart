@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2020 .
- */
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,9 +12,13 @@ class PhoneVerificationBottomSheetWidget extends GetView<ProfileController> {
     return Container(
       decoration: BoxDecoration(
         color: Get.theme.primaryColor,
-        borderRadius: BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20)),
+        borderRadius: BorderRadius.only(
+            topRight: Radius.circular(20), topLeft: Radius.circular(20)),
         boxShadow: [
-          BoxShadow(color: Get.theme.focusColor.withOpacity(0.4), blurRadius: 30, offset: Offset(0, -30)),
+          BoxShadow(
+              color: Get.theme.focusColor.withOpacity(0.4),
+              blurRadius: 30,
+              offset: Offset(0, -30)),
         ],
       ),
       child: Column(
@@ -28,10 +28,12 @@ class PhoneVerificationBottomSheetWidget extends GetView<ProfileController> {
           Container(
             height: 30,
             width: double.infinity,
-            padding: EdgeInsets.symmetric(vertical: 13, horizontal: (Get.width / 2) - 30),
+            padding: EdgeInsets.symmetric(
+                vertical: 13, horizontal: (Get.width / 2) - 30),
             decoration: BoxDecoration(
               color: Get.theme.focusColor.withOpacity(0.1),
-              borderRadius: BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20)),
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(20), topLeft: Radius.circular(20)),
             ),
             child: Container(
               decoration: BoxDecoration(
@@ -42,7 +44,8 @@ class PhoneVerificationBottomSheetWidget extends GetView<ProfileController> {
             ),
           ),
           Text(
-            "We sent the OTP code to your phone, please check it and enter below".tr,
+            "We sent the OTP code to your phone, please check it and enter below"
+                .tr,
             style: Get.textTheme.bodyText1,
             textAlign: TextAlign.center,
           ).paddingSymmetric(horizontal: 20, vertical: 10),
@@ -61,7 +64,8 @@ class PhoneVerificationBottomSheetWidget extends GetView<ProfileController> {
             color: Get.theme.colorScheme.secondary,
             text: Text(
               "Verify".tr,
-              style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.primaryColor)),
+              style: Get.textTheme.headline6
+                  .merge(TextStyle(color: Get.theme.primaryColor)),
             ),
           ).paddingSymmetric(vertical: 30, horizontal: 20),
         ],

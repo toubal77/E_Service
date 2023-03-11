@@ -1,10 +1,3 @@
-/*
- * File name: api_provider.dart
- * Last modified: 2022.02.14 at 12:25:29
- * Author: SmarterVision - https://codecanyon.net/user/smartervision
- * Copyright (c) 2022
- */
-
 import 'package:get/get.dart';
 
 import '../../common/custom_trace.dart';

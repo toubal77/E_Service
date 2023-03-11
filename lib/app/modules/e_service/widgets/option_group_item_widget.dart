@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2020 .
- */
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -51,7 +47,10 @@ class OptionGroupItemWidget extends GetWidget<EServiceController> {
           },
           itemBuilder: (context, index) {
             var _option = _optionGroup.options.elementAt(index);
-            return OptionItemWidget(option: _option, optionGroup: _optionGroup, eService: _eService);
+            return OptionItemWidget(
+                option: _option,
+                optionGroup: _optionGroup,
+                eService: _eService);
           },
         ),
       ],

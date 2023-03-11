@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2022 .
- */
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_field/country_picker_dialog.dart';
@@ -48,12 +44,16 @@ class PhoneFieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 20, bottom: 14, left: 20, right: 20),
-      margin: EdgeInsets.only(left: 20, right: 20, top: topMargin, bottom: bottomMargin),
+      margin: EdgeInsets.only(
+          left: 20, right: 20, top: topMargin, bottom: bottomMargin),
       decoration: BoxDecoration(
           color: Get.theme.primaryColor,
           borderRadius: buildBorderRadius,
           boxShadow: [
-            BoxShadow(color: Get.theme.focusColor.withOpacity(0.1), blurRadius: 10, offset: Offset(0, 5)),
+            BoxShadow(
+                color: Get.theme.focusColor.withOpacity(0.1),
+                blurRadius: 10,
+                offset: Offset(0, 5)),
           ],
           border: Border.all(color: Get.theme.focusColor.withOpacity(0.05))),
       child: Column(
@@ -71,7 +71,8 @@ class PhoneFieldWidget extends StatelessWidget {
               initialValue: initialValue ?? '',
               initialCountryCode: initialCountryCode ?? 'DE',
               showDropdownIcon: false,
-              pickerDialogStyle: PickerDialogStyle(countryNameStyle: Get.textTheme.bodyText2),
+              pickerDialogStyle:
+                  PickerDialogStyle(countryNameStyle: Get.textTheme.bodyText2),
               style: style ?? Get.textTheme.bodyText2,
               textAlign: textAlign ?? TextAlign.start,
               disableLengthCheck: true,

@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2020 .
- */
-
 import 'package:get/get.dart';
 
 import '../services/global_service.dart';
@@ -17,9 +13,12 @@ class Media extends Model {
 
   Media({String id, String url, String thumb, String icon}) {
     this.id = id ?? "";
-    this.url = url ?? "${Get.find<GlobalService>().baseUrl}images/image_default.png";
-    this.thumb = thumb ?? "${Get.find<GlobalService>().baseUrl}images/image_default.png";
-    this.icon = icon ?? "${Get.find<GlobalService>().baseUrl}images/image_default.png";
+    this.url =
+        url ?? "${Get.find<GlobalService>().baseUrl}images/image_default.png";
+    this.thumb =
+        thumb ?? "${Get.find<GlobalService>().baseUrl}images/image_default.png";
+    this.icon =
+        icon ?? "${Get.find<GlobalService>().baseUrl}images/image_default.png";
   }
 
   Media.fromJson(Map<String, dynamic> jsonMap) {
@@ -63,5 +62,12 @@ class Media extends Model {
           size == other.size;
 
   @override
-  int get hashCode => super.hashCode ^ id.hashCode ^ name.hashCode ^ url.hashCode ^ thumb.hashCode ^ icon.hashCode ^ size.hashCode;
+  int get hashCode =>
+      super.hashCode ^
+      id.hashCode ^
+      name.hashCode ^
+      url.hashCode ^
+      thumb.hashCode ^
+      icon.hashCode ^
+      size.hashCode;
 }
